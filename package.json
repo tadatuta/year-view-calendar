@@ -18,7 +18,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "analyze": "npm run build -- --stats && webpack-bundle-analyzer build/bundle-stats.json"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,6 +41,7 @@
     "@types/storybook__addon-info": "^3.4.4",
     "@types/storybook__react": "^4.0.1",
     "babel-loader": "^8.0.5",
-    "react-docgen-typescript-loader": "^3.0.1"
+    "react-docgen-typescript-loader": "^3.0.1",
+    "webpack-bundle-analyzer": "^3.0.4"
   }
 }
