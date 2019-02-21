@@ -1,5 +1,5 @@
 {
-  "name": "react-project-stub",
+  "name": "year-view-calendar",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -43,6 +43,7 @@
     "@types/storybook__addon-info": "^3.4.4",
     "@types/storybook__react": "^4.0.1",
     "babel-loader": "^8.0.5",
+    "react-calendar": "^2.18.1",
     "react-docgen-typescript-loader": "^3.0.1",
     "webpack-bundle-analyzer": "^3.0.4"
   }
