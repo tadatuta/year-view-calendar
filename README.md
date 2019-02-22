@@ -83,6 +83,11 @@ npm i webpack-bundle-analyzer --save-dev
 "analyze": "npm run build -- --stats && webpack-bundle-analyzer build/bundle-stats.json"
 ```
 
+### Подключаем bem-react
+```sh
+npm i @bem-react/classname @bem-react/core --save-dev
+```
+
 ### Подключаем Лего
 ```sh
 npm i lego-on-react @yandex-lego/components --save-dev --registry=http://npm.yandex-team.ru

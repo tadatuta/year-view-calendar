@@ -32,6 +32,8 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.3.3",
+    "@bem-react/classname": "^1.4.3",
+    "@bem-react/core": "^1.6.3",
     "@storybook/addon-actions": "^4.1.12",
     "@storybook/addon-info": "^4.1.12",
     "@storybook/addon-links": "^4.1.12",
