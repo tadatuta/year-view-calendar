@@ -2,6 +2,7 @@
   "name": "year-view-calendar",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tadatuta.github.io/year-view-calendar",
   "dependencies": {
     "@types/jest": "24.0.4",
     "@types/node": "11.9.3",
@@ -19,7 +20,9 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "analyze": "npm run build -- --stats && webpack-bundle-analyzer build/bundle-stats.json"
+    "analyze": "npm run build -- --stats && webpack-bundle-analyzer build/bundle-stats.json",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,6 +46,7 @@
     "@types/storybook__addon-info": "^3.4.4",
     "@types/storybook__react": "^4.0.1",
     "babel-loader": "^8.0.5",
+    "gh-pages": "^2.0.1",
     "react-calendar": "^2.18.1",
     "react-docgen-typescript-loader": "^3.0.1",
     "webpack-bundle-analyzer": "^3.0.4"
