@@ -142,28 +142,25 @@ export interface IEvent {
     description?: string;
     location?: string;
     url?: string;
+    color: string;
 }
 
 export function icalToInternalFormat(icalData: any[]): IEvent[] {
-    return icalData.map(origEvent => {
+    return icalData.map((origEvent, idx) => {
         return {
             start: new Date(origEvent.start),
             end: new Date(origEvent.end),
             summary: origEvent.summary,
             description: origEvent.description,
             location: origEvent.location,
-            url: origEvent.url && origEvent.url.params.VALUE
+            url: origEvent.url && origEvent.url.params.VALUE,
+            color: colors[(idx % colors.length + 1) -1]
         };
     })
     .sort((a, b) => +a.start - +b.start); // TODO: check if it's really needed
 }
 
-export interface IEventData {
-    event: IEvent;
-    color: string;
-}
-
-type IEventsByDay = Record<string, IEventData[]>;
+type IEventsByDay = Record<string, IEvent[]>;
 
 export function getEventsByDay(events: IEvent[]) {
     return events.reduce((acc: IEventsByDay, event, idx) => {
@@ -174,10 +171,7 @@ export function getEventsByDay(events: IEvent[]) {
 
             acc[dayId] || (acc[dayId] = []);
 
-            acc[dayId].push({
-                event,
-                color: colors[(idx % colors.length + 1) -1]
-            });
+            acc[dayId].push(event);
         }
 
         return acc;

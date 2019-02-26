@@ -1,22 +1,36 @@
 .Calendar {
     display: grid;
+    grid-template-columns: 1fr 250px;
+
     font-family: Helvetica, Arial, sans-serif;
 }
 
+.Calendar-Year {
+    display: grid;
+}
+
+.Calendar-Legend {
+    margin-top: 64px;
+}
+
+.Calendar-Legend span {
+    color: #000;
+}
+
 @media (min-width: 600px)  {
-    .Calendar {
+    .Calendar-Year {
         grid-template-columns: 50% 50%;
     }
 }
 
 @media (min-width: 900px)  {
-    .Calendar {
+    .Calendar-Year {
         grid-template-columns: 33% 33% 33%;
     }
 }
 
 @media (min-width: 1200px)  {
-    .Calendar {
+    .Calendar-Year {
         grid-template-columns: 25% 25% 25% 25%;
     }
 }
@@ -78,7 +92,8 @@
     margin-top: 0;
 }
 
-.Calendar-Day:hover .Calendar-DayInfo {
+.Calendar-Day:hover .Calendar-DayInfo,
+.Calendar-Day:focus .Calendar-DayInfo {
     display: block;
 }
 
