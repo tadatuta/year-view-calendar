@@ -13,19 +13,29 @@ export function Legend({ data }: ILegendProps) {
       {
         data
           .filter(event => event.summary)
-          .map(event => (
-            <li className={cnCalendar('LegendItem')} style={{ color: event.color, fontSize: '50px', lineHeight: '24px' }}>
+          .map(event => {
+            const eventStartStr = event.start.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit' });
+            const eventEndStr = event.end.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit' });
+
+            return (<li
+              className={cnCalendar('LegendItem')}
+              style={{ color: event.color, fontSize: '50px', lineHeight: '24px' }}
+              key={event.start.toString()}
+            >
               <span style={{ fontSize: '14px', verticalAlign: 'middle' }}>
                 <strong>
                   {
-                    event.start.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit' })
+                    eventStartStr !== eventEndStr ?
+                      [eventStartStr, eventEndStr].join('-') :
+                      eventStartStr
                   }
                 </strong>
                 {' '}
                 {event.summary}
               </span>
-            </li>
-          ))
+            </li>)
+          }
+        )
       }
     </ul>
   );

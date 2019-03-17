@@ -143,20 +143,48 @@ export interface IEvent {
     location?: string;
     url?: string;
     color: string;
+    type?: string;
+}
+
+// TODO: actualy the structure is never used as is anywhere yet
+// consider to simplify
+const eventTypes = {
+    BUSINESS_TRIP: 'командировка',
+    VACATION: 'отпуск',
+    CONCERT: 'концерт',
+    UNKNOWN: ''
+};
+
+function getEventType(origEvent: any) {
+    const text = (origEvent.summary + origEvent.description).toLowerCase();
+
+    for (const type of Object.values(eventTypes)) {
+        if (text.includes(type)) {
+            return type;
+        }
+    }
+
+    return eventTypes.UNKNOWN;
 }
 
 export function icalToInternalFormat(icalData: any[]): IEvent[] {
-    return icalData.map((origEvent, idx) => {
-        return {
-            start: new Date(origEvent.start),
-            end: new Date(origEvent.end),
-            summary: origEvent.summary,
-            description: origEvent.description,
-            location: origEvent.location,
-            url: origEvent.url && origEvent.url.params.VALUE,
-            color: colors[(idx % colors.length + 1) -1]
-        };
-    })
+    return icalData.reduce((acc: IEvent[], origEvent, idx): IEvent[] => {
+        if (origEvent.summary || origEvent.description) {
+            acc.push({
+                start: new Date(origEvent.start),
+                end: new Date(origEvent.end),
+                summary: origEvent.summary,
+                description: origEvent.description,
+                location: origEvent.location,
+                url: origEvent.url && origEvent.url.params.VALUE,
+                // TODO: not optimal
+                color: colors[Object.values(eventTypes).indexOf(getEventType(origEvent))],
+                type: getEventType(origEvent)
+            });
+        }
+
+        return acc;
+    }, [])
     .sort((a, b) => +a.start - +b.start); // TODO: check if it's really needed
 }
 

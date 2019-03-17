@@ -61,7 +61,7 @@ export function Day({ day, isCurrent, isWeekend, isPassed, events, className }: 
                       event.url
                     ]
                       .filter(Boolean)
-                      .map(val => <p>{val}</p>)
+                      .map((val, idx) => <p key={idx}>{val}</p>)
                   }
                 </div>
               </Fragment>
