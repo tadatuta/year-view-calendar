@@ -152,6 +152,7 @@ const eventTypes = {
     BUSINESS_TRIP: 'командировка',
     VACATION: 'отпуск',
     CONCERT: 'концерт',
+    SUBBOTNIK: 'субботник',
     UNKNOWN: ''
 };
 
@@ -167,6 +168,14 @@ function getEventType(origEvent: any) {
     return eventTypes.UNKNOWN;
 }
 
+const getColor = (function() {
+    const eventTypesVals = Object.values(eventTypes);
+
+    return function(origEvent: any): string {
+        return colors[eventTypesVals.indexOf(getEventType(origEvent))];
+    }
+})();
+
 export function icalToInternalFormat(icalData: any[]): IEvent[] {
     return icalData.reduce((acc: IEvent[], origEvent, idx): IEvent[] => {
         if (origEvent.summary || origEvent.description) {
@@ -178,7 +187,7 @@ export function icalToInternalFormat(icalData: any[]): IEvent[] {
                 location: origEvent.location,
                 url: origEvent.url && origEvent.url.params.VALUE,
                 // TODO: not optimal
-                color: colors[Object.values(eventTypes).indexOf(getEventType(origEvent))],
+                color: getColor(origEvent),
                 type: getEventType(origEvent)
             });
         }
@@ -204,4 +213,32 @@ export function getEventsByDay(events: IEvent[]) {
 
         return acc;
     }, {} as IEventsByDay);
+}
+
+function humanDateToJs(humanDate: string) {
+    const date = humanDate.split('.');
+
+    return new Date(+date[2] || new Date().getFullYear(), +date[1] - 1, +date[0]);
+}
+
+export function parseHumanEvents(eventsDescription: string): IEvent[] {
+    const events = eventsDescription.split('\n');
+
+    return events.map(event => {
+        const [interval, ...eventsData] = event.split(/\s/);
+        const [start, end] = interval.split('-');
+        const [summary, ...descriptionData] = eventsData.join(' ').split('.');
+        const description = descriptionData.join('.').trim();
+        const parsedEvent = {
+            start: humanDateToJs(start),
+            end: humanDateToJs(end || start),
+            summary,
+            description
+        } as IEvent;
+
+        parsedEvent.type = getEventType(parsedEvent);
+        parsedEvent.color = getColor(parsedEvent)
+
+        return parsedEvent;
+    });
 }

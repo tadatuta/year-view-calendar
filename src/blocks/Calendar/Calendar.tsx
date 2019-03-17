@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import {
   buildYearArr,
-  icalToInternalFormat,
   getEventsByDay,
+  parseHumanEvents,
   getDayId,
   isSameDay
 } from './date';
@@ -15,9 +15,9 @@ import { Day } from './Day/Day';
 import { DaysOfWeek } from './DaysOfWeek/DaysOfWeek';
 import { Legend } from './Legend/Legend';
 
-import data from '../../data.json';
+import data from '../../events.js';
 // TODO: это преобразование должно быть снаружи компонента
-const normalizedEvents = icalToInternalFormat(data);
+const normalizedEvents = parseHumanEvents(data);
 const events = getEventsByDay(normalizedEvents);
 
 interface ICalendarProps {
