@@ -10,4 +10,4 @@ deploy:
   keep-history: true
   local-dir: build
   on:
-    branch: master
+    branch: calendar
