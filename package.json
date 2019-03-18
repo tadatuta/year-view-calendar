@@ -16,6 +16,7 @@
   "scripts": {
     "md2js": "node ./md2js",
     "start": "react-scripts start",
+    "prebuild": "npm run md2js",
     "build": "react-scripts build",
     "pretest": "npm run md2js",
     "test": "react-scripts test",
