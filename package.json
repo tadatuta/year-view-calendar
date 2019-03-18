@@ -17,12 +17,13 @@
     "md2js": "node ./md2js",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "pretest": "npm run md2js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "analyze": "npm run build -- --stats && webpack-bundle-analyzer build/bundle-stats.json",
-    "predeploy": "npm run build",
+    "predeploy": "npm run md2js && npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
