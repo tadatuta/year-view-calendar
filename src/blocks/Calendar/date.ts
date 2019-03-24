@@ -197,7 +197,7 @@ export function icalToInternalFormat(icalData: any[]): IEvent[] {
     .sort((a, b) => +a.start - +b.start); // TODO: check if it's really needed
 }
 
-type IEventsByDay = Record<string, IEvent[]>;
+export type IEventsByDay = Record<string, IEvent[]>;
 
 export function getEventsByDay(events: IEvent[]) {
     return events.reduce((acc: IEventsByDay, event, idx) => {

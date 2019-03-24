@@ -5,7 +5,9 @@ import {
   getEventsByDay,
   parseHumanEvents,
   getDayId,
-  isSameDay
+  isSameDay,
+  IEvent,
+  IEventsByDay
 } from './date';
 
 import { cnCalendar } from '.';
@@ -15,16 +17,24 @@ import { Day } from './Day/Day';
 import { DaysOfWeek } from './DaysOfWeek/DaysOfWeek';
 import { Legend } from './Legend/Legend';
 
-import data from '../../events.js';
-// TODO: это преобразование должно быть снаружи компонента
-const normalizedEvents = parseHumanEvents(data);
-const events = getEventsByDay(normalizedEvents);
-
 interface ICalendarProps {
+  data: string;
   year?: number;
 }
 
 export class Calendar extends Component<ICalendarProps> {
+  constructor(props: ICalendarProps) {
+    super(props);
+
+    // TODO: это преобразование должно быть снаружи компонента
+    this.normalizedEvents = parseHumanEvents(this.props.data);
+    this.events = getEventsByDay(this.normalizedEvents);
+  }
+
+  private events: IEventsByDay;
+
+  private normalizedEvents: IEvent[];
+
   render() {
     const now = new Date();
     const year = buildYearArr(this.props.year || now.getFullYear());
@@ -53,7 +63,7 @@ export class Calendar extends Component<ICalendarProps> {
                             week.map((day, idx) => {
                               const dayDate = day.date;
                               const dayId = getDayId(dayDate);
-                              const currentEvents = events[dayId] || [];
+                              const currentEvents = this.events[dayId] || [];
 
                               return (<Day
                                 day={day}
@@ -74,7 +84,7 @@ export class Calendar extends Component<ICalendarProps> {
             })
           }
         </div>
-        <Legend data={normalizedEvents} />
+        <Legend data={this.normalizedEvents} />
       </div>
     );
   }
