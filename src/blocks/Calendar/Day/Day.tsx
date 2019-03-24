@@ -16,12 +16,16 @@ function getBackground(events: IEvent[]): string {
   if (events.length === 1) {
     return events[0].color;
   }
+  return 'linear-gradient(to bottom, ' +
+    events.reduce((acc: string[], event, idx) => {
+      acc.push(
+        event.color + ' ' + (idx * 100 / events.length) + '%',
+        event.color + ' ' + ((idx + 1) * 100 / events.length) + '%'
+      );
 
-  // TODO: проверить больше 2 событий в день
-
-  return 'linear-gradient(to bottom, ' + events.map(event => {
-    return event.color + ' ' + (100 / events.length) + '%';
-  }).join(', ') + ')';
+      return acc;
+    }, []).join(', ') +
+    ')';
 }
 
 export function Day({ day, isCurrent, isWeekend, isPassed, events, className }: IDayProps) {
@@ -38,15 +42,16 @@ export function Day({ day, isCurrent, isWeekend, isPassed, events, className }: 
         passed: isPassed
       }, [className])}
       tabIndex={1}
-      style={hasEvents ?
-        { background: getBackground(events) } :
-        undefined
-      }
     >
-      {isCurrent ?
-        <span className={cnCalendar('DayInner')}>{currentDate}</span> :
-        currentDate
-      }
+      <div
+        className={cnCalendar('DayText')}
+        style={hasEvents ?
+          { background: getBackground(events) } :
+          undefined
+        }
+      >
+        {currentDate}
+      </div>
       {
         hasEvents && (
           <div className={cnCalendar('DayInfo')}>

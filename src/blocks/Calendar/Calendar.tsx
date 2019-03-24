@@ -28,6 +28,8 @@ export class Calendar extends Component<ICalendarProps> {
   render() {
     const now = new Date();
     const year = buildYearArr(this.props.year || now.getFullYear());
+    const today = new Date(now);
+    today.setHours(0, 0, 0, 0);
 
     return (
       <div className={cnCalendar()}>
@@ -58,7 +60,7 @@ export class Calendar extends Component<ICalendarProps> {
                                 isCurrent={isSameDay(dayDate, now)}
                                 isWeekend={idx > 4}
                                 events={currentEvents}
-                                isPassed={day.date < now}
+                                isPassed={day.date < today}
                                 key={dayId}
                               />);
                             })

@@ -1,8 +1,16 @@
 .Calendar {
-    display: grid;
-    grid-template-columns: 1fr 250px;
-
     font-family: Helvetica, Arial, sans-serif;
+}
+
+@media (min-width: 1450px)  {
+    .Calendar {
+        display: grid;
+        grid-template-columns: 1fr 250px;
+    }
+
+    .Calendar-Legend.Calendar-Legend {
+        columns: 1;
+    }
 }
 
 .Calendar-Year {
@@ -13,7 +21,47 @@
     margin-top: 64px;
 }
 
-.Calendar-Legend span {
+.Calendar-LegendList {
+    margin: 0 0 20px;
+}
+
+.Calendar-LegendItem {
+    position: relative;
+
+    font-size: 50px;
+    line-height: 24px;
+    text-indent: -14px
+}
+
+.Calendar-LegendItem_passed {
+    opacity: .5;
+}
+
+.Calendar-LegendItem_markToday {
+    margin-top: 16px;
+    padding-top: 6px;
+}
+
+.Calendar-LegendItem_markToday::before {
+    position: absolute;
+    top: -2px;
+    left: -38px;
+
+    width: 100%;
+
+    content: "";
+
+    border-top: 1px dashed #f00;
+}
+
+.Calendar-LegendItemText {
+    position: relative;
+    top: -2px;
+
+    font-size: 14px;
+    line-height: 1.2em;
+    vertical-align: middle;
+
     color: #000;
 }
 
@@ -21,17 +69,29 @@
     .Calendar-Year {
         grid-template-columns: 50% 50%;
     }
+
+    .Calendar-Legend {
+        columns: 2;
+    }
 }
 
 @media (min-width: 900px)  {
     .Calendar-Year {
         grid-template-columns: 33% 33% 33%;
     }
+
+    .Calendar-Legend {
+        columns: 3;
+    }
 }
 
 @media (min-width: 1200px)  {
     .Calendar-Year {
         grid-template-columns: 25% 25% 25% 25%;
+    }
+
+    .Calendar-Legend {
+        columns: 4;
     }
 }
 
@@ -48,14 +108,8 @@
     text-align: center;
 }
 
-.Calendar-Day {
+.Calendar-Month {
     position: relative;
-
-    padding: 8px 10px;
-}
-
-.Calendar-Day_passed {
-    color: rgba(0, 0, 0, .1);
 }
 
 .Calendar-Day_otherMonth {
@@ -66,13 +120,27 @@
     outline: 2px solid rgba(255, 0, 0, 0.5);
 }
 
+.Calendar-DayText {
+    padding: 8px 10px;
+}
+
+.Calendar-Day_passed .Calendar-DayText {
+    opacity: .5;
+}
+
+.Calendar-Day_hasEvents .Calendar-DayText {
+    color: #fff;
+    /* mix-blend-mode: difference; */
+}
+
 .Calendar-DayInfo {
     position: absolute;
     z-index: 1;
+    left: 0;
 
     display: none;
 
-    min-width: 200px;
+    min-width: 240px;
     padding: 20px;
 
     background: #fff;

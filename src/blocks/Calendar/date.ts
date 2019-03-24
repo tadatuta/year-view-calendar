@@ -35,7 +35,7 @@ export function getWeekDays(locale = 'ru-Ru') {
 export function *iterateByDay(startDate: Date, endDate: Date): IterableIterator<Date> {
     const dateIterator = new Date(startDate);
 
-    while (dateIterator < endDate) {
+    while (dateIterator <= endDate) {
         yield dateIterator;
         dateIterator.setDate(dateIterator.getDate() + 1);
     }
@@ -240,5 +240,6 @@ export function parseHumanEvents(eventsDescription: string): IEvent[] {
         parsedEvent.color = getColor(parsedEvent)
 
         return parsedEvent;
-    });
+    })
+    .sort((a, b) => (+a.start - +b.start) + (+a.end - +b.end))
 }
