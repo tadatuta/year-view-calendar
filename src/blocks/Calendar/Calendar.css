@@ -4,8 +4,7 @@
 
 @media (min-width: 1450px)  {
     .Calendar {
-        display: grid;
-        grid-template-columns: 1fr 250px;
+        display: flex;
     }
 
     .Calendar-Legend.Calendar-Legend {
@@ -15,6 +14,8 @@
 
 .Calendar-Year {
     display: grid;
+    flex-grow: 1;
+    align-content: start;
 }
 
 .Calendar-Legend {
@@ -96,6 +97,8 @@
 }
 
 .Calendar-Month {
+    position: relative;
+
     width: 20%;
 }
 
@@ -106,10 +109,6 @@
 
 .Calendar-MonthTable {
     text-align: center;
-}
-
-.Calendar-Month {
-    position: relative;
 }
 
 .Calendar-Day_otherMonth {
