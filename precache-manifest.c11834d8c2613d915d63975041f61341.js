@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/year-view-calendar/static/js/runtime~main.ce2d63cb.js"
   },
   {
-    "revision": "634f18bd19caba45a19c",
-    "url": "/year-view-calendar/static/js/main.ca80016a.chunk.js"
+    "revision": "18217d899176f4a38eb0",
+    "url": "/year-view-calendar/static/js/main.175c2cd2.chunk.js"
   },
   {
     "revision": "a84c6d38c224e91ce95b",
     "url": "/year-view-calendar/static/js/2.aa9add75.chunk.js"
   },
   {
-    "revision": "634f18bd19caba45a19c",
+    "revision": "18217d899176f4a38eb0",
     "url": "/year-view-calendar/static/css/main.8bf2a909.chunk.css"
   },
   {
-    "revision": "63e8a4d730babf77fe6c1ac8a6bfb93f",
+    "revision": "4ec54975e75f26ab50f06bc10f971936",
     "url": "/year-view-calendar/index.html"
   }
 ];
