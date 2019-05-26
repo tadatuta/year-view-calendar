@@ -35,6 +35,16 @@ export class Calendar extends Component<ICalendarProps> {
 
   private normalizedEvents: IEvent[];
 
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      const now = new Date();
+      const today = new Date(now);
+      today.setHours(0, 0, 0, 0);
+
+      window.history.pushState(null, '', '#' + today.toLocaleDateString('en-US', { month: 'long' }));
+    }
+  }
+
   render() {
     const now = new Date();
     const year = buildYearArr(this.props.year || now.getFullYear());
@@ -51,6 +61,7 @@ export class Calendar extends Component<ICalendarProps> {
 
               return (
                 <div className={cnCalendar('Month')} key={idx}>
+                  <a id={monthDate.toLocaleDateString('en-US', { month: 'long' })}></a>
                   <h2 className={cnCalendar('MonthName')}>
                     {monthDate.toLocaleDateString('ru-RU', { month: 'long' })}
                   </h2>
