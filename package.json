@@ -10,7 +10,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "analyze": "npm run build -- --stats && webpack-bundle-analyzer build/bundle-stats.json",
+    "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -48,6 +48,6 @@
     "babel-loader": "8.0.5",
     "gh-pages": "^2.0.1",
     "react-docgen-typescript-loader": "^3.1.0",
-    "webpack-bundle-analyzer": "^3.3.2"
+    "source-map-explorer": "^1.8.0"
   }
 }
