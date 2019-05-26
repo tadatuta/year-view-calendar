@@ -61,8 +61,7 @@ export class Calendar extends Component<ICalendarProps> {
 
               return (
                 <div className={cnCalendar('Month')} key={idx}>
-                  <a id={monthDate.toLocaleDateString('en-US', { month: 'long' })}></a>
-                  <h2 className={cnCalendar('MonthName')}>
+                  <h2 className={cnCalendar('MonthName')} id={monthDate.toLocaleDateString('en-US', { month: 'long' })}>
                     {monthDate.toLocaleDateString('ru-RU', { month: 'long' })}
                   </h2>
                   <table className={cnCalendar('MonthTable')}><tbody>

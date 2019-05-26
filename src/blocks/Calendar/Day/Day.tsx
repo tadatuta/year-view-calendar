@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { IDay, IEvent } from '../date';
+import { cnCalendar } from '..';
 
 interface IDayProps {
   day: IDay;
@@ -9,8 +10,6 @@ interface IDayProps {
   isPassed: boolean;
   className?: string;
 }
-
-import { cnCalendar } from '..';
 
 function getBackground(events: IEvent[]): string {
   if (events.length === 1) {
