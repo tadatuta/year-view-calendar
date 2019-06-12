@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/year-view-calendar/static/css/main.88c060e0.chunk.css",
-    "main.js": "/year-view-calendar/static/js/main.15f9a58a.chunk.js",
-    "main.js.map": "/year-view-calendar/static/js/main.15f9a58a.chunk.js.map",
+    "main.js": "/year-view-calendar/static/js/main.d4e6b029.chunk.js",
+    "main.js.map": "/year-view-calendar/static/js/main.d4e6b029.chunk.js.map",
     "runtime~main.js": "/year-view-calendar/static/js/runtime~main.b55ea234.js",
     "runtime~main.js.map": "/year-view-calendar/static/js/runtime~main.b55ea234.js.map",
     "static/js/2.53d78030.chunk.js": "/year-view-calendar/static/js/2.53d78030.chunk.js",
     "static/js/2.53d78030.chunk.js.map": "/year-view-calendar/static/js/2.53d78030.chunk.js.map",
     "index.html": "/year-view-calendar/index.html",
-    "precache-manifest.556d654db23bcb785b6eeb49ac013ad0.js": "/year-view-calendar/precache-manifest.556d654db23bcb785b6eeb49ac013ad0.js",
+    "precache-manifest.5240edaa25e64c1e8246025bdf70f63e.js": "/year-view-calendar/precache-manifest.5240edaa25e64c1e8246025bdf70f63e.js",
     "service-worker.js": "/year-view-calendar/service-worker.js",
     "static/css/main.88c060e0.chunk.css.map": "/year-view-calendar/static/css/main.88c060e0.chunk.css.map"
   }
