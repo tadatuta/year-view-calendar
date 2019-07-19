@@ -8,8 +8,10 @@ Just commit an update to [events.md](events.md).
 
 ## Events syntax
 
+```
 DD.MM Summary. Description
 DD.MM-DD.MM Summary phrase. Description 1. Description 2. Description 3
+```
 
 ## Get your own instance of calendar
 
