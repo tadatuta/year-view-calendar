@@ -153,6 +153,11 @@ const eventTypes = {
     VACATION: 'отпуск',
     CONCERT: 'концерт',
     SUBBOTNIK: 'субботник',
+    HIKE: 'поход',
+    TRAINING: 'тренинг',
+    FRIDAY: 'пЯТЬница',
+    HACKATHON: 'хакатон',
+    CALIBRATION: 'калибровк',
     UNKNOWN: ''
 };
 
