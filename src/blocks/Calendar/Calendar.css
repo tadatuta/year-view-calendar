@@ -8,6 +8,7 @@
     }
 
     .Calendar-Legend.Calendar-Legend {
+        max-width: 350px;
         columns: 1;
     }
 }
