@@ -12,7 +12,7 @@
     "build-storybook": "build-storybook -s public",
     "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages --add --dist build"
   },
   "eslintConfig": {
     "extends": "react-app"
