@@ -4,7 +4,7 @@ React app to render year view of events from ical.
 
 ## How to use
 
-Just commit an update to [events.md](events.md).
+Just commit an update to [events.js](events.js).
 
 ## Events syntax
 
