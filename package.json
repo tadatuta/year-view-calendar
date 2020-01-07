@@ -2,7 +2,7 @@
   "name": "year-view-calendar",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tadatuta.github.io/year-view-calendar",
+  "homepage": "https://tadatuta.github.io/year-view-calendar/2019",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

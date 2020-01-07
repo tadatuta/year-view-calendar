@@ -7,7 +7,7 @@ import data from './events.js';
 class App extends Component {
   render() {
     return (
-      <Calendar data={data} />
+      <Calendar data={data} year={2019} />
     );
   }
 }
