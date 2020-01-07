@@ -149,6 +149,7 @@ export interface IEvent {
 // TODO: actualy the structure is never used as is anywhere yet
 // consider to simplify
 const eventTypes = {
+    WEEKEND: 'выходной',
     BUSINESS_TRIP: 'командировка',
     VACATION: 'отпуск',
     CONCERT: 'концерт',
