@@ -27,7 +27,7 @@ export class Calendar extends Component<ICalendarProps> {
     super(props);
 
     // TODO: это преобразование должно быть снаружи компонента
-    this.normalizedEvents = parseHumanEvents(this.props.data);
+    this.normalizedEvents = parseHumanEvents(this.props.data, this.props.year);
     this.events = getEventsByDay(this.normalizedEvents);
   }
 
