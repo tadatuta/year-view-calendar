@@ -215,13 +215,13 @@ export function getEventsByDay(events: IEvent[]) {
     }, {} as IEventsByDay);
 }
 
-function humanDateToJs(humanDate: string) {
-    const date = humanDate.split('.');
+function humanDateToJs(humanDate: string, defaultYear?: number) {
+    const [day, month, year] = humanDate.split('.');
 
-    return new Date(+date[2] || new Date().getFullYear(), +date[1] - 1, +date[0]);
+    return new Date(+year || defaultYear || new Date().getFullYear(), +month - 1, +day);
 }
 
-export function parseHumanEvents(eventsDescription: string): IEvent[] {
+export function parseHumanEvents(eventsDescription: string, defaultYear?: number): IEvent[] {
     const events = eventsDescription.split('\n');
 
     return events.map(event => {
@@ -230,8 +230,8 @@ export function parseHumanEvents(eventsDescription: string): IEvent[] {
         const [summary, ...descriptionData] = eventsData.join(' ').split('.');
         const description = descriptionData.join('.').trim();
         const parsedEvent = {
-            start: humanDateToJs(start),
-            end: humanDateToJs(end || start),
+            start: humanDateToJs(start, defaultYear),
+            end: humanDateToJs(end || start, defaultYear),
             summary,
             description
         } as IEvent;

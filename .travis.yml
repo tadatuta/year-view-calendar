@@ -7,7 +7,8 @@ script:
 - npm run build
 
 deploy:
-  provider: pages
+  provider: script
+  script: npm run deploy -- --repo https://$GITHUB_TOKEN@github.com/tadatuta/year-view-calendar.git --silent
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep-history: true
