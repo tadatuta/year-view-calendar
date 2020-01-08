@@ -149,10 +149,18 @@ export interface IEvent {
 // TODO: actualy the structure is never used as is anywhere yet
 // consider to simplify
 const eventTypes = {
+    CRIMEA_WEEKEND: 'крымский выходной',
+    WEEKEND: 'выходной',
     BUSINESS_TRIP: 'командировка',
     VACATION: 'отпуск',
     CONCERT: 'концерт',
     SUBBOTNIK: 'субботник',
+    HIKE: 'поход',
+    TRAINING: 'тренинг',
+    FRIDAY: 'пятьница',
+    HACKATHON: 'хакатон',
+    CALIBRATION: 'калибровк',
+    CONFERENCE: 'конференция',
     UNKNOWN: ''
 };
 
@@ -222,7 +230,7 @@ function humanDateToJs(humanDate: string, defaultYear?: number) {
 }
 
 export function parseHumanEvents(eventsDescription: string, defaultYear?: number): IEvent[] {
-    const events = eventsDescription.split('\n');
+    const events = eventsDescription.split('\n').filter(Boolean);
 
     return events.map(event => {
         const [interval, ...eventsData] = event.split(/\s/);
