@@ -8,6 +8,7 @@
     }
 
     .Calendar-Legend.Calendar-Legend {
+        max-width: 350px;
         columns: 1;
     }
 }
@@ -117,6 +118,10 @@
 
 .Calendar-Day_current {
     outline: 2px solid rgba(255, 0, 0, 0.5);
+}
+
+.Calendar-Day_weekend:not(.Calendar-Day_hasEvents) {
+    opacity: .3;
 }
 
 .Calendar-DayText {
