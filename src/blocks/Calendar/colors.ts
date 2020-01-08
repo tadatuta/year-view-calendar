@@ -1,4 +1,5 @@
 export const colors = [
-    '#E59942', 'rebeccapurple', '#649B5E',
-    '#49B851', '#14A0E7', '#A2EEFE', '#79B473'
+    '#eee', '#ccc', '#14A0E7', 'red', 'rebeccapurple',
+    '#A2EEFE', '#649B5E', '#dfd114', '#E59942',
+    '#49B851', '#b47394', '#fcea48', '#004080',
 ];
