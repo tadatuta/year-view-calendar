@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/year-view-calendar/2020/static/css/main.b146ad0e.chunk.css",
+    "main.js": "/year-view-calendar/2020/static/js/main.6fd075b4.chunk.js",
+    "main.js.map": "/year-view-calendar/2020/static/js/main.6fd075b4.chunk.js.map",
+    "runtime-main.js": "/year-view-calendar/2020/static/js/runtime-main.aaf1ade6.js",
+    "runtime-main.js.map": "/year-view-calendar/2020/static/js/runtime-main.aaf1ade6.js.map",
+    "static/js/2.24f4b03a.chunk.js": "/year-view-calendar/2020/static/js/2.24f4b03a.chunk.js",
+    "static/js/2.24f4b03a.chunk.js.map": "/year-view-calendar/2020/static/js/2.24f4b03a.chunk.js.map",
+    "index.html": "/year-view-calendar/2020/index.html",
+    "static/css/main.b146ad0e.chunk.css.map": "/year-view-calendar/2020/static/css/main.b146ad0e.chunk.css.map",
+    "static/js/2.24f4b03a.chunk.js.LICENSE.txt": "/year-view-calendar/2020/static/js/2.24f4b03a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.aaf1ade6.js",
+    "static/js/2.24f4b03a.chunk.js",
+    "static/css/main.b146ad0e.chunk.css",
+    "static/js/main.6fd075b4.chunk.js"
+  ]
+}
