@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/year-view-calendar/static/css/main.b146ad0e.chunk.css",
+    "main.js": "/year-view-calendar/static/js/main.8178e4dd.chunk.js",
+    "main.js.map": "/year-view-calendar/static/js/main.8178e4dd.chunk.js.map",
+    "runtime-main.js": "/year-view-calendar/static/js/runtime-main.bfd24d09.js",
+    "runtime-main.js.map": "/year-view-calendar/static/js/runtime-main.bfd24d09.js.map",
+    "static/js/2.24f4b03a.chunk.js": "/year-view-calendar/static/js/2.24f4b03a.chunk.js",
+    "static/js/2.24f4b03a.chunk.js.map": "/year-view-calendar/static/js/2.24f4b03a.chunk.js.map",
+    "index.html": "/year-view-calendar/index.html",
+    "static/css/main.b146ad0e.chunk.css.map": "/year-view-calendar/static/css/main.b146ad0e.chunk.css.map",
+    "static/js/2.24f4b03a.chunk.js.LICENSE.txt": "/year-view-calendar/static/js/2.24f4b03a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bfd24d09.js",
+    "static/js/2.24f4b03a.chunk.js",
+    "static/css/main.b146ad0e.chunk.css",
+    "static/js/main.8178e4dd.chunk.js"
+  ]
+}
